@@ -27,7 +27,7 @@
 | address_city           | integer             | null: false               |
 | address_house          | string              | null: false               |
 | address_building       | text                |                           |
-| phone_number           | string                | null: false               |
+| phone_number           | string              | null: false               |
 
 ### Association
 
