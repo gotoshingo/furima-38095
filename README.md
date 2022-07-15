@@ -8,8 +8,6 @@
 | encrypted_password | string              | null: false               |
 | first_name         | string              | null: false               |
 | second_name        | string              | null: false               |
-| first_name_kana    | string              | null: false               |
-| second_name_kana   | string              | null: false               |
 | nick_name          | string              | null: false               |
 | date_of_birth      | date                | null: false               |
 
@@ -17,21 +15,26 @@
 
 - has_many :items
 - has_many :buys
+- has_one :address
 
 ## address table
 
 | Column                 | Type                | Options                   |
 |------------------------|---------------------|---------------------------|
-| address_number         | string              | null: false               |
-| address_prefectures    | integer             | null: false               |
-| address_city           | integer             | null: false               |
-| address_house          | string              | null: false               |
+| address_number         | text                | null: false               |
+| address_prefectures    | text                | null: false               |
+| address_city           | text                | null: false               |
+| address_house          | text                | null: false               |
 | address_building       | text                |                           |
-| phone_number           | string                | null: false               |
+| phone_number           | text                | null: false               |
+| card_number            | string              | null: false               |
+| card_dey               | string              | null: false               |
+| card_security          | string              | null: false               |
 
 ### Association
 
-- has_one :buys
+- has_one :items
+- belongs_to :users
 
 ## items table
 
@@ -49,7 +52,8 @@
 
 ### Association
 
-- has_one :users
+- belongs_to :users
+- belongs_to :address
 - has_one :buys
 
 ## buys table
@@ -61,5 +65,5 @@
 
 ### Association
 
-- has_one :users
-- has_one :buys
+belongs_to :users
+belongs_to :buys
