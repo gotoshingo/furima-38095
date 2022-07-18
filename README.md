@@ -18,12 +18,12 @@
 - has_many :items
 - has_many :buys
 
-## address table
+## addresses table
 
 | Column                 | Type                | Options                             |
 |------------------------|---------------------|-------------------------------------|
 | address_number         | string              | null: false                         |
-| address_prefectures    | integer             | null: false                         |
+| item_address_id        | integer             | null: false                         |
 | address_city           | string              | null: false                         |
 | address_house          | string              | null: false                         |
 | address_building       | string              |                                     |
@@ -42,7 +42,7 @@
 | item_category_id       | integer             | null: false                        |
 | item_condition_id      | integer             | null: false                        |
 | item_address_id        | integer             | null: false                        |
-| item_explanation_id    | integer             | null: false                        |
+| item_explanation       | string              | null: false                        |
 | delivery_category_id   | integer             | null: false                        |
 | delivery_dey_id        | integer             | null: false                        |
 | price                  | integer             | null: false                        |
@@ -51,7 +51,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :buy
+- has_one :buy
 
 ## buys table
 
