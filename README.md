@@ -27,7 +27,7 @@
 | address_city           | integer             | null: false               |
 | address_house          | string              | null: false               |
 | address_building       | text                |                           |
-| phone_number           | string                | null: false               |
+| phone_number           | string              | null: false               |
 
 ### Association
 
@@ -37,20 +37,19 @@
 
 | Column                 | Type                | Options                            |
 |------------------------|---------------------|------------------------------------|
-| item_image             | text                | null: false                        |
-| item_name              | text                | null: false                        |
-| item_category          | text                | null: false                        |
-| item_condition         | text                | null: false                        |
-| item_address           | text                | null: false                        |
-| item_explanation       | text                | null: false                        |
-| delivery_category      | string              | null: false                        |
-| price                  | string              | null: false                        |
+| item_name              | string              | null: false                        |
+| item_category_id       | integer             | null: false                        |
+| item_condition_id      | integer             | null: false                        |
+| item_address_id        | integer             | null: false                        |
+| item_explanation_id    | integer             | null: false                        |
+| delivery_category_id   | integer             | null: false                        |
+| price                  | integer             | null: false                        |
 | user                   | references          | null: false, foreign_key: true     |
 
 ### Association
 
-- has_one :users
-- has_one :buys
+- belongs_to :users
+- belongs_to :buys
 
 ## buys table
 
@@ -61,5 +60,6 @@
 
 ### Association
 
-- has_one :users
-- has_one :buys
+- belongs_to :users
+- has_one :items
+- belongs_to :address
