@@ -24,9 +24,9 @@
 |------------------------|---------------------|-------------------------------------|
 | address_number         | string              | null: false                         |
 | address_prefectures    | integer             | null: false                         |
-| address_city           | integer             | null: false                         |
+| address_city           | string              | null: false                         |
 | address_house          | string              | null: false                         |
-| address_building       | text                |                                     |
+| address_building       | string              |                                     |
 | phone_number           | string              | null: false                         |
 | buy                    | references          | null: false, foreign_key: true      |
 
