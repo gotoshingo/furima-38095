@@ -42,7 +42,7 @@
 | item_category_id       | integer             | null: false                        |
 | item_condition_id      | integer             | null: false                        |
 | item_address_id        | integer             | null: false                        |
-| item_explanation       | string              | null: false                        |
+| item_explanation       | text                | null: false                        |
 | delivery_category_id   | integer             | null: false                        |
 | delivery_dey_id        | integer             | null: false                        |
 | price                  | integer             | null: false                        |
