@@ -20,18 +20,19 @@
 
 ## address table
 
-| Column                 | Type                | Options                   |
-|------------------------|---------------------|---------------------------|
-| address_number         | string              | null: false               |
-| address_prefectures    | integer             | null: false               |
-| address_city           | integer             | null: false               |
-| address_house          | string              | null: false               |
-| address_building       | text                |                           |
-| phone_number           | string              | null: false               |
+| Column                 | Type                | Options                             |
+|------------------------|---------------------|-------------------------------------|
+| address_number         | string              | null: false                         |
+| address_prefectures    | integer             | null: false                         |
+| address_city           | integer             | null: false                         |
+| address_house          | string              | null: false                         |
+| address_building       | text                |                                     |
+| phone_number           | string              | null: false                         |
+| buy                    | references          | null: false, foreign_key: true      |
 
 ### Association
 
-- has_one :buys
+- belongs_to :buy
 
 ## items table
 
@@ -43,13 +44,14 @@
 | item_address_id        | integer             | null: false                        |
 | item_explanation_id    | integer             | null: false                        |
 | delivery_category_id   | integer             | null: false                        |
+| delivery_dey_id        | integer             | null: false                        |
 | price                  | integer             | null: false                        |
 | user                   | references          | null: false, foreign_key: true     |
 
 ### Association
 
-- belongs_to :users
-- belongs_to :buys
+- belongs_to :user
+- belongs_to :buy
 
 ## buys table
 
@@ -60,6 +62,6 @@
 
 ### Association
 
-- belongs_to :users
-- has_one :items
-- belongs_to :address
+- belongs_to :user
+- belongs_to :item
+- has_one :address
