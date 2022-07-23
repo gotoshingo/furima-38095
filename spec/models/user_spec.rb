@@ -111,8 +111,8 @@ RSpec.describe User, type: :model do
     end
     context "登録できる場合" do
       it "すべての情報が正しく入力された場合、登録できること" do
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Date of birth can't be blank")
+        expect(@user).to be_valid
       end
     end
- end
+  end
+end
