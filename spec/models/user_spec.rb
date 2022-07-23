@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
     it "重複したメールアドレスは登録できない" do
       @user.email = 'test@test'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Password is invalid")
+      expect(@user.errors.full_messages).to include()
     end
     it "メールアドレスに@を含まない場合は登録できない" do
       @user.email = 'kkkgmail.com'
@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Email is invalid")
     end
     it "encrypted_passwordが空では登録できない" do
-      @user.encrypted_password = ''
+      @user.password = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Password can't be blank")
     end
@@ -37,27 +37,27 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
     it "パスワードが6文字未満では登録できない" do
-      @user.encrypted_password = 'abc12'
+      @user.password = 'abc12'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
     it "英字のみのパスワードでは登録できない" do
-      @user.encrypted_password = 'abcdef'
+      @user.password = 'abcdef'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
     it "数字のみのパスワードでは登録できない" do
-      @user.encrypted_password = '123456'
+      @user.password = '123456'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
     it "全角文字を含むパスワードでは登録できない" do
-      @user.encrypted_password = 'あbc1２3'
+      @user.password = 'あbc1２3'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
     it "password_confirmationが空では登録できない" do
-      @user.encrypted_password = ''
+      @user.password = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Password can't be blank")
     end
