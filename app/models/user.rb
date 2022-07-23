@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :date_of_birth, presence: true
   validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}
 
-  with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ } do  
+  with_options presence: true, format: { with: /\A[ぁ-ゔァ-ヶ一-龥々ー]+\z/ } do  
     validates :first_name
     validates :second_name
   end
