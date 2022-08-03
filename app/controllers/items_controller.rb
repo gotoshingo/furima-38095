@@ -4,8 +4,8 @@ class ItemsController < ApplicationController
 
   def index
 
-    #@items = item.all
-    #@items = Item.order("created_at DESC")
+    @items = Item.order("created_at DESC")
+    #@record = Record.all
 
   end
 
