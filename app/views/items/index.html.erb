@@ -120,35 +120,36 @@
     <ul class='item-lists'>
 
       <% if  @items.present? %>
-        <%# @items.each do |item| %>
+        <% @items.each do |items| %>
         <%# if message.image.attached? %>
-        <%#= image_tag message.image.variant(resize: '500x500'), class: 'message-image'%>
-          <li class='list'>
-            <%= link_to "#" do %>
-              <div class='item-img-content'>
-                <%= image_tag "item-sample.png", class: "item-img" %>
+          <%= image_tag items.image.variant(resize: '500x500'), class: 'message-image'%>
+            <li class='list'>
+              <%= link_to "#" do %>
+                <%# if @record = nil %>
+                <div class='item-img-content'>
+                  <%= image_tag items.image, class: "item-img" if items.image.attached? %>
 
-              <div class='sold-out'>
-                <span>Sold Out!!</span>
-              </div>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
 
-              </div>
-              <div class='item-info'>
-                <h3 class='item-name'>
-                  <%= "商品名" %>
-                </h3>
-                <div class='item-price'>
-                  <span><%= "販売価格" %>円<br><%= '配送料負担' %></span>
-                  <div class='star-btn'>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                    <span class='star-count'>0</span>
+                </div>
+                <div class='item-info'>
+                  <h3 class='item-name'>
+                    <%= "#{items.item_name}" %>
+                  </h3>
+                  <div class='item-price'>
+                    <span><%= "{items.price}" %>円<br><%= "{items.delivery_category_name}" %></span>
+                    <div class='star-btn'>
+                      <%= image_tag "star.png", class:"star-icon" %>
+                      <span class='star-count'>0</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
-            </li>
-        <% end %>
-      <%# else %>
+              <% end %>
+              </li>
+          <% end %>
+      <% else %>
         <li class='list'>
         <%= link_to '#' do %>
           <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
@@ -165,7 +166,7 @@
             </div>
           </div>
         <% end %>
-      <%# end %>
+      <% end %>
       </li>
     </ul>
   </div>
