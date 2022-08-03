@@ -3,8 +3,10 @@ class ItemsController < ApplicationController
   # before_action :set_furima, only: [:edit, :show, :update, :destroy]
 
   def index
+
     #@items = item.all
     #@items = Item.order("created_at DESC")
+
   end
 
   def new
