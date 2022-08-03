@@ -122,12 +122,11 @@
       <% if  @items.present? %>
         <% @items.each do |items| %>
         <%# if message.image.attached? %>
-          <%= image_tag items.image.variant(resize: '500x500'), class: 'message-image'%>
             <li class='list'>
               <%= link_to "#" do %>
                 <%# if @record = nil %>
                 <div class='item-img-content'>
-                  <%= image_tag items.image, class: "item-img" if items.image.attached? %>
+                  <%= image_tag items.image, class: "item-img" %>
 
                 <div class='sold-out'>
                   <span>Sold Out!!</span>
@@ -139,7 +138,7 @@
                     <%= "#{items.item_name}" %>
                   </h3>
                   <div class='item-price'>
-                    <span><%= "{items.price}" %>円<br><%= "{items.delivery_category_name}" %></span>
+                    <span><%= "#{items.price}" %>円<br><%= "#{items.delivery_category.name}" %></span>
                     <div class='star-btn'>
                       <%= image_tag "star.png", class:"star-icon" %>
                       <span class='star-count'>0</span>
