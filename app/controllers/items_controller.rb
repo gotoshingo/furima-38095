@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  # before_action :set_furima, only: [:edit, :show, :update, :destroy]
+  before_action :set_items, only: [:edit, :show]
 
   def index
 
@@ -22,14 +22,14 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def show
-  # end
+  def show
+  end
 
-  # def edit
+  def edit
   #   if Record.exists?(items_id: @item.id) || current_user.id != @item.user_id
   #     redirect_to root_path      
   #   end
-  # end
+  end
 
   # def update
   #   if @item.update(item_params)
@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
   def items_params
     params.require(:item).permit(:image, :item_name, :item_category_id, :item_condition_id, :item_address_id, :item_explanation, :delivery_category_id, :delivery_dey_id, :price).merge(user_id: current_user.id)
   end
-  # def set_item
-  #   @item =Item.find(params[:id])
-  # end
+  def set_items
+    @items =Item.find(params[:id])
+  end
 end

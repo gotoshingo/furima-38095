@@ -123,7 +123,7 @@
         <% @items.each do |item| %>
         <%# if message.image.attached? %>
             <li class='list'>
-              <%= link_to "#" do %>
+              <%= link_to item_path(item.id), method: :get do %>
                 <%# if @record = nil %>
                 <div class='item-img-content'>
                   <%= image_tag item.image, class: "item-img" %>
