@@ -13,8 +13,8 @@ RSpec.describe RecordAddress, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@record_address).to be_valid
       end
-      it 'building_numberは空でも保存できること' do
-        @record_address.building_number = ''
+      it 'address_buildingは空でも保存できること' do
+        @record_address.address_building = ''
         expect(@record_address).to be_valid
       end
       it 'phone_numberは10桁でも保存できること' do
