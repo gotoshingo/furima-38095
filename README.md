@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :buys
+- has_many :records
 
 ## addresses table
 
@@ -28,11 +28,11 @@
 | address_house          | string              | null: false                         |
 | address_building       | string              |                                     |
 | phone_number           | string              | null: false                         |
-| buy                    | references          | null: false, foreign_key: true      |
+| record                 | references          | null: false, foreign_key: true      |
 
 ### Association
 
-- belongs_to :buy
+- belongs_to :record
 
 ## items table
 
@@ -51,9 +51,9 @@
 ### Association
 
 - belongs_to :user
-- has_one :buy
+- has_one :record
 
-## buys table
+## records table
 
 | Column             | Type                | Options                            |
 |--------------------|---------------------|------------------------------------|

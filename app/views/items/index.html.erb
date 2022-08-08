@@ -119,35 +119,34 @@
     </div>
     <ul class='item-lists'>
 
-      <% if  @items.present? %>
+      <% if @items.present? %>
         <% @items.each do |item| %>
-        <%# if message.image.attached? %>
             <li class='list'>
               <%= link_to item_path(item.id), method: :get do %>
-                <%# if @record = nil %>
-                <div class='item-img-content'>
-                  <%= image_tag item.image, class: "item-img" %>
+                  <div class='item-img-content'>
+                    <%= image_tag item.image, class: "item-img" if item.image.attached?%>
+                    <% if  Record.exists?(item_id:item.id)  %>
+                  <div class='sold-out'>
+                    <span>Sold Out!!</span>
+                  </div>
+                <% end %>
+                  </div>
+              <% end %>
 
-                <div class='sold-out'>
-                  <span>Sold Out!!</span>
-                </div>
-
-                </div>
-                <div class='item-info'>
-                  <h3 class='item-name'>
-                    <%= "#{item.item_name}" %>
-                  </h3>
-                  <div class='item-price'>
-                    <span><%= "#{item.price}" %>円<br><%= "#{item.delivery_category.name}" %></span>
-                    <div class='star-btn'>
-                      <%= image_tag "star.png", class:"star-icon" %>
-                      <span class='star-count'>0</span>
-                    </div>
+              <div class='item-info'>
+                <h3 class='item-name'>
+                  <%= "#{item.item_name}" %>
+                </h3>
+                <div class='item-price'>
+                  <span><%= "#{item.price}" %>円<br><%= "#{item.delivery_category.name}" %></span>
+                  <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                    <span class='star-count'>0</span>
                   </div>
                 </div>
-              <% end %>
+              </div>
               </li>
-          <% end %>
+        <% end %>
       <% else %>
         <li class='list'>
         <%= link_to '#' do %>
@@ -169,10 +168,9 @@
       </li>
     </ul>
   </div>
-  <%# /商品一覧 %>
 </div>
 <%= link_to('/items/new', class: 'purchase-btn') do %>
   <span class='purchase-btn-text'>出品する</span>
-  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <%= image_tag 'icon_camera.png', size: '185x50', class: "purchase-btn-icon" %>
 <% end %>
 <%= render "shared/footer" %>
