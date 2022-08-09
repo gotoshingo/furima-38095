@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'gimei'
 end
 
 group :development do
@@ -63,6 +64,6 @@ end
 gem 'devise'
 gem 'active_hash'
 gem 'pry-rails'
-
+gem 'payjp'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
