@@ -6,6 +6,7 @@ class RecordAddress
     validates :user_id
     validates :item_id
     validates :address_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :address_house
     validates :address_city
     validates :phone_number,format: {with: /\A[0-9]{10,11}\z/}
     validates :token

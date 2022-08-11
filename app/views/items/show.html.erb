@@ -30,7 +30,9 @@
       <%= link_to "削除", "/items/#{@item.id}", method: :delete, class:"item-destroy" %>
     <% end %>
   <% else %>
+    <% unless  Record.exists?(item_id:@item.id) %>
     <%= link_to "購入画面に進む", item_records_path(@item.id) ,class:"item-red-btn"%>
+    <% end %>
   <% end %>
 <% end %>
 
