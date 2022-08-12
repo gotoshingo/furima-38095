@@ -31,13 +31,13 @@ RSpec.describe RecordAddress, type: :model do
       it 'tokenが空では保存できないこと' do
         @record_address.token = nil
         @record_address.valid?
-        expect(@record_address.errors.full_messages).to include("Token can't be blank")
+        expect(@record_address.errors.full_messages).to include("Token を入力してください")
       end
 
       it 'address_numberが空だと保存できないこと' do
         @record_address.address_number = ''
         @record_address.valid?
-        expect(@record_address.errors.full_messages).to include("Address number can't be blank")
+        expect(@record_address.errors.full_messages).to include("Address number を入力してください")
       end
       it 'address_numberが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @record_address.address_number = '1234567'
@@ -47,22 +47,22 @@ RSpec.describe RecordAddress, type: :model do
       it 'item_address_idを選択していないと保存できないこと' do
         @record_address.item_address_id = 1
         @record_address.valid?
-        expect(@record_address.errors.full_messages).to include("Item address can't be blank")
+        expect(@record_address.errors.full_messages).to include("Item address を入力してください")
       end
       it 'address_cityが空だと保存できないこと' do
         @record_address.address_city = ''
         @record_address.valid?
-        expect(@record_address.errors.full_messages).to include("Address city can't be blank")
+        expect(@record_address.errors.full_messages).to include("Address city を入力してください")
       end
       it 'address_houseが空だと保存できないこと' do
         @record_address.address_house = ''
         @record_address.valid?
-        expect(@record_address.errors.full_messages).to include("Address house can't be blank")
+        expect(@record_address.errors.full_messages).to include("Address house を入力してください")
       end
       it 'phone_numberが空だと保存できないこと' do
         @record_address.phone_number = ''
         @record_address.valid?
-        expect(@record_address.errors.full_messages).to include("Phone number can't be blank")
+        expect(@record_address.errors.full_messages).to include("Phone number を入力してください")
       end
       it 'phone_numberがハイフンを含むと保存できないこと' do
         @record_address.phone_number = '090-1234-56789'
@@ -92,12 +92,12 @@ RSpec.describe RecordAddress, type: :model do
       it 'userが紐付いていないと保存できないこと' do
         @record_address.user_id = nil
         @record_address.valid?
-        expect(@record_address.errors.full_messages).to include("User can't be blank")
+        expect(@record_address.errors.full_messages).to include("User を入力してください")
       end
       it 'itemが紐付いていないと保存できないこと' do
         @record_address.item_id = nil
         @record_address.valid?
-        expect(@record_address.errors.full_messages).to include("Item can't be blank")
+        expect(@record_address.errors.full_messages).to include("Item を入力してください")
       end
     end
   end

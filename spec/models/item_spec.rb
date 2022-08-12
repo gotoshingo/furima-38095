@@ -15,42 +15,42 @@ RSpec.describe Item, type: :model do
       it "imageが空では登録できない" do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image can't be blank")
+        expect(@item.errors.full_messages).to include("Image を入力してください")
       end
       it "item_nameが空では登録できない" do
         @item.item_name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item name can't be blank")
+        expect(@item.errors.full_messages).to include("Item name を入力してください")
       end
       it "item_explanationが空では登録できない" do
         @item.item_explanation = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item explanation can't be blank")
+        expect(@item.errors.full_messages).to include("Item explanation を入力してください")
       end
       it "item_category_idが1では登録できない" do
         @item.item_category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item category can't be blank")
+        expect(@item.errors.full_messages).to include("Item category を入力してください")
       end
       it "item_condition_idが1では登録できない" do
         @item.item_condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item condition can't be blank")
+        expect(@item.errors.full_messages).to include("Item condition を入力してください")
       end
       it "delivery_category_idが1では登録できない" do
         @item.delivery_category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery category can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery category を入力してください")
       end
       it "item_address_idが1では登録できない" do
         @item.item_address_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item address can't be blank")
+        expect(@item.errors.full_messages).to include("Item address を入力してください")
       end
       it "delivery_dey_idが1では登録できない" do
         @item.delivery_dey_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery dey can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery dey を入力してください")
       end
       it "priceが空では登録できない" do
         @item.price = ''
