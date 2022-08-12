@@ -68,3 +68,4 @@ gem 'payjp'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem "aws-sdk-s3", require: false
+gem 'rails-i18n'
