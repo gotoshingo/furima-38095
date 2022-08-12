@@ -25,6 +25,37 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        second_name: 名字
+        first_name: 名前
+        second_name_kana: 名字（カナ）
+        first_name_kana: 名前（カナ）
+        nick_name: ニックネーム
+        date_of_birth: 誕生日
+      record_address:
+        address_number: 郵便番号
+        item_address: 都道府県
+        address_city: 市区町村
+        address_house: 番地
+        phone_number: 電話番号
+      item:
+        image: 商品画像
+        item_name: 商品名
+        item_category_id: カテゴリー
+        item_condition_id: 商品の状態
+        item_address_id: 発送元の地域
+        item_explanation: 商品の説明
+        delivery_category_id: 配送料の負担
+        delivery_dey_id: 発送までの日数
+        price: 価格
+  activemodel:
+    attributes:
+      record_address:
+        address_number: 郵便番号
+        item_address_id: 都道府県
+        address_city: 市区町村
+        address_house: 番地
+        phone_number: 電話番号
+        token: カード情報
     models:
       user: ユーザー
   devise:
